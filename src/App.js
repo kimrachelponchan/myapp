@@ -1,37 +1,45 @@
 import './App.css';
 
-// 1. 함수 선언 방법
-// 컴포넌트 선언시 대문자 Age
-function Age(props){
+function Circle(props){
 
-  const {numbers, others} = props;
-  console.log(props);
+  const {color, number} = props;
 
-  return (
-    <>
-      {others.map((color, index)=>{
-        return(
-          <div className={`bg-${color}-300 h-20 w-20`}><p className={""}>{numbers[index]}</p></div>
-        )
-      })}
-    </>
+  return(
+    <div className={`rounded-full h-20 w-20 ${color} flex items-center justify-center`}>{number}</div>
+  )
+}
 
+function Box(props){
+
+  const {color, number} = props;
+
+  return(
+    <div className={`h-20 w-20 ${color} flex justify-center items-center`}>{number}</div>
   )
 }
 
 
 function App() {
-  const others = ['blue', 'gray', 'red', 'yellow','red'];
-  const numbers = [1,2,3,4,5];
-  return (
+
+  const colors = ['bg-red-100','bg-red-200','bg-red-300','bg-red-400','bg-red-500'];
+
+  return(
     <>
-      <div className={`h-full w-full`}>
-        <Age numbers = {numbers} others={others}/>
-        
-      </div>
-      
+    {colors.map((color, index) =>{
+
+      const circleNumber = index * 2 + 1;
+      const boxNumber = index * 2 + 2;
+
+      return(
+        <>
+        <Circle color={color} number={circleNumber}/>
+        <Box color={color} number={boxNumber} />
+        </>
+      )
+    }
+  )}
     </>
-  );
+  )
 }
 
 export default App;
