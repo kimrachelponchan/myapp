@@ -4,12 +4,16 @@ import './App.css';
 // 컴포넌트 선언시 대문자 Age
 function Age(props){
 
-  const {a, style} = props;
+  const {numbers, others} = props;
   console.log(props);
 
   return (
     <>
-      <div className={`${style} h-20 w-20`}><p className={"spinner-reverse"}>{a}</p></div>
+      {others.map((color, index)=>{
+        return(
+          <div className={`bg-${color}-300 h-20 w-20`}><p className={""}>{numbers[index]}</p></div>
+        )
+      })}
     </>
 
   )
@@ -17,13 +21,13 @@ function Age(props){
 
 
 function App() {
+  const others = ['blue', 'gray', 'red', 'yellow','red'];
+  const numbers = [1,2,3,4,5];
   return (
     <>
       <div className={`h-full w-full`}>
-        <Age a = '10' style = "bg-blue-300"/>
-        <Age a = '20' style = "bg-gray-300"/>
-        <Age a = '30' style = "custom-box-spin"/>
-        <Age a = '40' style = "custom-box-red"/>
+        <Age numbers = {numbers} others={others}/>
+        
       </div>
       
     </>

@@ -1,17 +1,5 @@
 @tailwind base;
 @tailwind components; 
 @tailwind utilities;
-@import "./App.css";
 
 
-@layer components {
-    .custom-box-red {
-        @apply bg-red-300 rounded-full flex items-center justify-center text-[0.5em] font-extrabold;
-    }
-    .custom-box-spin {
-        @apply border-[5px] border-blue-300 rounded-full border-r-gray-300 flex justify-center items-center;
-        animation: 
-        spin 1s linear infinite,
-        ping 2s linear infinite;
-    }
-}
