@@ -3,3 +3,8 @@
 @tailwind utilities;
 
 
+@layer components{
+    .button-style{
+        @apply cursor-pointer hover:bg-black transition-all duration-300 rounded-lg p-2 text-white font-bold mx-1
+    }
+}
