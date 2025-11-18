@@ -1,38 +1,46 @@
-.App {
-  text-align: center;
+@keyframes spin{
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+@keyframes ping{
+    0% {
+        scale: 0.5;
+    }
+    50%{
+        scale: 1;
+    }
+    100% {
+        scale: 0.5;
+    }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+@keyframes spin-reverse {
+    0% {
+        transform: rotate(-0deg);
+    }
+    100% {
+        transform: rotate(-360deg);
+    }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.spinner{
+    animation: 
+    spin 1s linear infinite,
+    ping 2s linear infinite;
 }
 
-.App-link {
-  color: #61dafb;
+.spinner-reverse{
+    animation: spin-reverse 1s linear infinite;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
+
+/* 방금 배운것 
+1.  keyframes를 사용하여 애니메이션을 줄 수 있다
+2.  layer components 안에 apply를 사용하여 테일윈드 유틸리티 클래스를 묶을 수 있다
+3.  apply안에 직접작성한 css는 넣을 수 없다. */
